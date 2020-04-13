@@ -1,0 +1,42 @@
+<div class="flex items-center flex-wrap bg-teal-500 p-3">
+    <div class="flex items-center text-white">
+        <div class="">
+            <div class="h-24 w-24 flex-none bg-cover" style="background-image: url('../../assets/drug.png')"
+                title="Find your drug">
+            </div>
+        </div>
+        <span class="p-3 font-semibold text-3xl">Search Marketed Drugs by Brand Name</span>
+    </div>
+    <div class="pt-3 lg:pt-0 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="mr-3 flex-grow">
+            <input type="text" class="w-full py-2 px-3 text-3xl text-gray-800" id="text" name="text"
+                placeholder="cold or fever" [(ngModel)]="search.text">
+        </div>
+        <div class="pt-3 lg:pt-0">
+            <button (click)="searchDrug()" type="button"
+                class="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded">
+                Go
+            </button>
+        </div>
+    </div>
+</div>
+<div class="bg-gray-100 overflow-hidden p-4 ">
+    <table class="table-auto w-full text-xl">
+        <thead *ngIf="drugList.length > 0">
+            <tr>
+                <th class="px-4 py-2">DIN</th>
+                <th class="px-4 py-2">Brand Name</th>
+                <th class="px-4 py-2">Manufacturer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let drug of drugList" (click)="selectDrug(drug)">
+                <td class="border px-4 py-2 text-blue-500 font-bold"><a href="#{{drug.din}}">{{drug.din}}</a></td>
+                <td class="border px-4 py-2">{{drug.brandName}}</td>
+                <td class="border px-4 py-2">{{drug.manufacturer.companyName}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <app-drug-details-tw [drug]="selectedDrug"></app-drug-details-tw>
+</div>
