@@ -5,12 +5,17 @@
                 title="Find your drug">
             </div>
         </div>
-        <span class="p-3 font-semibold text-3xl">Search Marketed Drugs by Brand Name</span>
+        <span class="p-3 font-semibold text-3xl tracking-tight">Search Marketed Drugs by Brand Name</span>
     </div>
     <div class="pt-3 lg:pt-0 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="mr-3 flex-grow">
-            <input type="text" class="w-full py-2 px-3 text-3xl text-gray-800" id="text" name="text"
+            <div class="relative">
+            <input type="text" class="rounded-lg w-full pl-12 py-2 px-3 text-2xl text-gray-800 " id="text" name="text"
                 placeholder="cold or fever" [(ngModel)]="search.text" (keyup.enter)="searchDrug()">
+                <div class="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
+                    <svg class="fill-current pointer-events-none text-gray-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
+                  </div>
+                  </div>
         </div>
         <!--div class="pt-3 lg:pt-0">
             <button (click)="searchDrug()" type="button"
