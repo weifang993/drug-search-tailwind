@@ -9,7 +9,7 @@ import { Drug } from '../shared/drug-data.model';
 
 export class DrugDataService {
     // for docke-compose demo
-    host = 'localhost';
+    host = '192.168.206.130';
     port = 8080;
     
     // for minikube demo

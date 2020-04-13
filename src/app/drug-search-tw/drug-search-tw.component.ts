@@ -10,6 +10,7 @@ import { Search, Drug } from '../shared/drug-data.model';
 export class DrugSearchTwComponent implements OnInit {
   selectedDrug : Drug;
   drugList : Drug[];
+  visibility : string;
   
   // search criteria
   search : Search;  
@@ -22,14 +23,17 @@ export class DrugSearchTwComponent implements OnInit {
   ngOnInit() {  
     this.search = new Search();
     this.search.text = "";
+    this.visibility = "invisible";
 
     // fake list
+    /*
     this.drugList = [
        {"din": "12345678", "brandName": "Drug for head ache", "manufacturer": { "companyName": "APO Canada"}}, 
        {"din": "23456789", "brandName": "Drug for serious problem in the neck", "manufacturer": { "companyName": "NEXT Drugs Inc."}}, 
        {"din": "34567890", "brandName": "Drug for killing Covid-19 virus - will boost morale of the country", "manufacturer": { "companyName": "Johnson & Johnson"}}, 
       
       ]
+    */
   }
 
   searchDrug(){ 
@@ -43,7 +47,16 @@ export class DrugSearchTwComponent implements OnInit {
 
   selectDrug(drug : Drug){
     this.selectedDrug = drug;
+    this.visibility = "visible";
     console.log('selected: ', drug)
+  }
+  
+  getVisibility(){
+    return this.visibility;
+  }
+
+  closePanel(){
+    this.visibility = "invisible";
   }
 
 }

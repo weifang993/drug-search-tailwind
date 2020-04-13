@@ -10,14 +10,14 @@
     <div class="pt-3 lg:pt-0 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="mr-3 flex-grow">
             <input type="text" class="w-full py-2 px-3 text-3xl text-gray-800" id="text" name="text"
-                placeholder="cold or fever" [(ngModel)]="search.text">
+                placeholder="cold or fever" [(ngModel)]="search.text" (keyup.enter)="searchDrug()">
         </div>
-        <div class="pt-3 lg:pt-0">
+        <!--div class="pt-3 lg:pt-0">
             <button (click)="searchDrug()" type="button"
                 class="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded">
                 Go
             </button>
-        </div>
+        </div-->
     </div>
 </div>
 <div class="bg-gray-100 overflow-hidden p-4 ">

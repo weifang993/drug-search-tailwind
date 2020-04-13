@@ -1,6 +1,6 @@
 <div *ngIf="drug">
     <div class="w-full rounded shadow-lg">
-        <img class="h-24 w-24 flex-none bg-cover" src="../../assets/drug.png" alt="Drug Information">
+        <img class="p-3 h-24 w-24 flex-none bg-cover" src="../../assets/drug.png" alt="Drug Information">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">{{drug.brandName}}</div>
             <table class="table-auto w-full text-xl">
@@ -65,7 +65,7 @@
             <div *ngIf="drug.activeIngredients">
                 <table class="table-auto w-full text-xl">
                     <thead>
-                        <tr>
+                        <tr class="text-left">
                             <th>Active Ingredient</th>
                             <th>Strength</th>
                         </tr>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="px-6 py-4">
-            <span
+            <span (click)="closePanel()"
                 class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Close</span>
         </div>
 
