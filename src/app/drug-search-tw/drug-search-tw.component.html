@@ -10,12 +10,16 @@
     <div class="pt-3 lg:pt-0 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="mr-3 flex-grow">
             <div class="relative">
-            <input type="text" class="rounded-lg w-full pl-12 py-2 px-3 text-2xl text-gray-800 " id="text" name="text"
-                placeholder="cold or fever" [(ngModel)]="search.text" (keyup.enter)="searchDrug()">
+                <input type="text" class="rounded-lg w-full pl-12 py-2 px-3 text-2xl text-gray-800 " id="text"
+                    name="text" placeholder="cold or fever" [(ngModel)]="search.text" (keyup.enter)="searchDrug()">
                 <div class="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
-                    <svg class="fill-current pointer-events-none text-gray-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
-                  </div>
-                  </div>
+                    <svg class="fill-current pointer-events-none text-gray-600 w-6 h-6"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path
+                            d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                        </svg>
+                </div>
+            </div>
         </div>
         <!--div class="pt-3 lg:pt-0">
             <button (click)="searchDrug()" type="button"
@@ -25,6 +29,7 @@
         </div-->
     </div>
 </div>
+
 <div class="bg-gray-100 overflow-hidden p-4 ">
     <table class="table-auto w-full text-xl">
         <thead *ngIf="drugList.length > 0">
@@ -42,6 +47,18 @@
             </tr>
         </tbody>
     </table>
+</div>
 
-    <app-drug-details-tw [drug]="selectedDrug"></app-drug-details-tw>
+<div class="{{getVisibility()}} absolute custom-transparent inset-0 z-50 overflow-auto bg-gray-100 flex">
+    <div class="relative bg-gray-100 w-full max-w-md lg:max-w-3xl m-auto flex-col flex">
+        <span class="absolute top-0 right-0 pr-3 pt-3" (click)="hide()">
+            <svg class="h-12 w-12 fill-current text-grey hover:text-grey-darkest" role="button"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <title>Close</title>
+                <path
+                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            </svg>
+        </span>
+        <app-drug-details-tw [drug]="selectedDrug"></app-drug-details-tw>
+    </div>
 </div>

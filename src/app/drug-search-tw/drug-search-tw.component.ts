@@ -55,7 +55,7 @@ export class DrugSearchTwComponent implements OnInit {
     return this.visibility;
   }
 
-  closePanel(){
+  hide(){
     this.visibility = "invisible";
   }
 
