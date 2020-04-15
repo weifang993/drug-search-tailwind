@@ -1,6 +1,11 @@
 # DrugSearch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2 and updated to 9 in 2020. Tailwind was added to the project based on instructions from: https://dev.to/beavearony/building-tailwind-css-in-an-angular-cli-project-e04
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2 and updated to 9 in 2020. Tailwind was added to the project.
+
+Useful references:
+
+* https://dev.to/beavearony/building-tailwind-css-in-an-angular-cli-project-e04. 
+* https://codeburst.io/creating-a-modal-dialog-with-tailwind-css-42722c9aea4f
 
 ## Development server
 
