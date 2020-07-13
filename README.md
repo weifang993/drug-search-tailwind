@@ -19,6 +19,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+On Centos, the following was executed for max watcher error:
+echo fs.inotify.max_user_watches=50288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
