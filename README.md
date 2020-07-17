@@ -56,7 +56,7 @@ To build docker image for local minikube,
 
 * `oc login`
 * `ng build --prod`
-* `npx nodeshift --strictSSL=false --dockerImage=bucharestgold/centos7-s2i-web-app --imageTag=10.x --build.env OUTPUT_DIR=dist/drug-search --expose`
+* `npx nodeshift --strictSSL=false --dockerImage=nodeshift/ubi8-s2i-web-app --imageTag=10.x --build.env OUTPUT_DIR=dist/drug-search --expose`
 
 ## Build and Deploy to Local Minishift
 
@@ -64,10 +64,13 @@ To build docker image for local minikube,
 * `minishift oc-env` and follow instructions to configure shell for the os
 * `eval #(minishift oc-env)` - ubuntu/linux instruction
 * `oc login`  (developer/developer)
-* `[sudo] npx nodeshift --strictSSL=false --dockerImage=bucharestgold/centos7-s2i-web-app --imageTag=10.x --build.env OUTPUT_DIR=dist/drug-search --expose`
+* `[sudo] npx nodeshift --strictSSL=false --dockerImage=nodeshift/ubi8-s2i-web-app --imageTag=10.x --build.env OUTPUT_DIR=dist/drug-search --expose`
 
 ### Update for CRC OpenShift 4.4.8 ###
 
-Reference: https://github.com/nodeshift/ubi8-s2i-web-app
+References: 
+https://github.com/nodeshift/ubi8-s2i-web-app
+https://developers.redhat.com/blog/2018/10/04/modern-web-apps-openshift-part-1/
+
 * create .s2i/environment file with 'OUTPUT_DIR=dist'
 * `oc new-app nodeshift/ubi8-s2i-web-app:latest~https://github.com/weifang993/drug-search-tailwind`
