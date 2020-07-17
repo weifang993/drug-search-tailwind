@@ -65,3 +65,9 @@ To build docker image for local minikube,
 * `eval #(minishift oc-env)` - ubuntu/linux instruction
 * `oc login`  (developer/developer)
 * `[sudo] npx nodeshift --strictSSL=false --dockerImage=bucharestgold/centos7-s2i-web-app --imageTag=10.x --build.env OUTPUT_DIR=dist/drug-search --expose`
+
+### Update for CRC OpenShift 4.4.8 ###
+
+Reference: https://github.com/nodeshift/ubi8-s2i-web-app
+* create .s2i/environment file with 'OUTPUT_DIR=dist'
+* `oc new-app nodeshift/ubi8-s2i-web-app:latest~https://github.com/weifang993/drug-search-tailwind`
