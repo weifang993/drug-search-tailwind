@@ -40,11 +40,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 To build docker image,
 
 * `ng build --prod`
-* `[sudo] docker image build -t drug-search .`
+* `[sudo] docker build -t drug-search .`
+* `podman build -t drug-search .`
 
 To run the docker,
 
 * `[sudo] docker run -p 4500:80 --rm drug-search` 
+* `podman run -p 8080:8080 drug-search-tailwind`
 
 To build docker image for local minikube,
 
@@ -79,7 +81,6 @@ https://developers.redhat.com/blog/2018/10/04/modern-web-apps-openshift-part-1/
 
 This approach uses project Dockerfile as part of Docker strategy. From the home of the angular project, type
 
-* `ng build --prod`
 * `oc new-app .` or `oc new-app . --strategy=docker -l name=drug-search-tailwind app=drug-search-tailwind`
 
 Since the Angular /dist is not in the remote Git, only local build will be successful. To start a local build, type:
@@ -88,7 +89,7 @@ Since the Angular /dist is not in the remote Git, only local build will be succe
 
 #### Create App with S2I ####
 
-This is in beta.
+This is in beta. Not yet working.
 
-* create .s2i/environment file with 'OUTPUT_DIR=dist/drug-search' (?)
+* create .s2i/environment file with 'OUTPUT_DIR=dist/drug-search'
 * `oc new-app nodeshift/ubi8-s2i-web-app:latest~https://github.com/weifang993/drug-search-tailwind.git`
