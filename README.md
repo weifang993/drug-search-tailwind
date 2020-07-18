@@ -77,13 +77,18 @@ https://developers.redhat.com/blog/2018/10/04/modern-web-apps-openshift-part-1/
 
 #### Create App from Local Source ####
 
-From the home of the angular project, type
+This approach uses project Dockerfile as part of Docker strategy. From the home of the angular project, type
 
-* `oc new-app .`
+* `ng build --prod`
+* `oc new-app .` or `oc new-app . --strategy=docker -l name=drug-search-tailwind app=drug-search-tailwind`
+
+Since the Angular /dist is not in the remote Git, only local build will be successful. To start a local build, type:
+* `oc start-build drug-search-tailwind --from-dir=. --follow`
+* `oc expose svc/drug-search-tailwind`
 
 #### Create App with S2I ####
 
 This is in beta.
 
-* create .s2i/environment file with 'OUTPUT_DIR=dist/drug-search'
+* create .s2i/environment file with 'OUTPUT_DIR=dist/drug-search' (?)
 * `oc new-app nodeshift/ubi8-s2i-web-app:latest~https://github.com/weifang993/drug-search-tailwind.git`
