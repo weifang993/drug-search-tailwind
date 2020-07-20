@@ -22,7 +22,8 @@ export class DrugDataService {
     
     // for openshift test
     // host = 'dpd-server-moet.apps-crc.testing';  // take the public url of dpd-server from openshift 
-    host = 'dpd-vert-moet.apps-crc.testing'; // take the public url of dpd-vertx from openshift 
+    // replace host string before running the app. 
+    host = 'DPD_SERVER_HOSTNAME'; 
     port = 80;
 
     constructor(private http: HttpClient) {
