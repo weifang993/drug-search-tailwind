@@ -8,21 +8,7 @@ import { Drug } from '../shared/drug-data.model';
 })
 
 export class DrugDataService {
-    // for docke-compose demo
-    //host = '192.168.206.130';
-    //port = 8080;
-    
-    // for minikube demo
-    //host = '192.168.99.107';
-    //port = 31408;
-
-    // for minishift demo
-    //host = 'dpd-server-ts-myproject.192.168.99.100.nip.io';  // take the route of the dpd-server
-    //port = 80;
-    
-    // for openshift test
-    // host = 'dpd-server-moet.apps-crc.testing';  // take the public url of dpd-server from openshift 
-    // replace host string before running the app. 
+    // host and port will be replace by tekton pipelines
     host = 'DPD_SERVER_HOSTNAME'; 
     port = 80;
 
