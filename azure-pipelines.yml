@@ -28,12 +28,4 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Denis Sandbox 1'
-        appType: 'webApp'
-        WebAppName: 'drug-search'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/dist'
-        enableCustomDeployment: true
-        DeploymentType: 'webDeploy'
+
