@@ -33,7 +33,7 @@ stages:
         ConnectionType: 'AzureRM'
         azureSubscription: 'Denis Sandbox 1'
         appType: 'webApp'
-        WebAppName: 'WFang-Search'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/dist/drug-search'
+        WebAppName: 'drug-search'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/dist'
         enableCustomDeployment: true
         DeploymentType: 'webDeploy'
