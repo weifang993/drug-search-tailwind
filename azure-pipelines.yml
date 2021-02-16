@@ -34,6 +34,6 @@ stages:
         azureSubscription: 'Denis Sandbox 1'
         appType: 'webApp'
         WebAppName: 'WFang-Search'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/dist/drug-search'
         enableCustomDeployment: true
         DeploymentType: 'webDeploy'
