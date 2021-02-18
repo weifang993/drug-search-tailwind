@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.SANDBOX_REGISTRY_USERNAME }}
         password: ${{ secrets.SANDBOX_REGISTRY_PASSWORD }}
     - run: |
-        docker build . flasitcr/action-drug-search-tailwind:latest
+        docker build -t flasitcr/action-drug-search-tailwind:latest . 
         docker push flasitcr/action-drug-search-tailwind:latest
 
   # docker:
