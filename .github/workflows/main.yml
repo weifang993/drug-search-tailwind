@@ -19,8 +19,8 @@ jobs:
         username: ${{ secrets.SANDBOX_REGISTRY_USERNAME }}
         password: ${{ secrets.SANDBOX_REGISTRY_PASSWORD }}
     - run: |
-        docker build -t flasitcr/action-drug-search-tailwind:latest . 
-        docker push flasitcr/action-drug-search-tailwind:latest
+        docker build -t flasitcr.azurecr.io/action-drug-search-tailwind:latest . 
+        docker push flasitcr.azurecr.io/action-drug-search-tailwind:latest
 
   # docker:
   #   name: Build and Push Docker image to Docker Hub
