@@ -24,7 +24,7 @@ jobs:
     
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'github-action-cicd01'
+        app-name: 'denisdockertest1'
         images: 'flasitcr.azurecr.io/action-drug-search-tailwind:latest'
     
     - name: Azure logout
