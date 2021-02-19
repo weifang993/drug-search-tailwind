@@ -87,9 +87,11 @@ Since the Angular /dist is not in the remote Git, only local build will be succe
 * `oc start-build drug-search-tailwind --from-dir=. --follow`
 * `oc expose svc/drug-search-tailwind`
 
-#### Create App with S2I ####
+#### Github Action with Azure ####
 
-This is in beta. Not yet working.
+Reference: https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal
 
-* create .s2i/environment file with 'OUTPUT_DIR=dist/drug-search'
-* `oc new-app nodeshift/ubi8-s2i-web-app:latest~https://github.com/weifang993/drug-search-tailwind.git`
+An Azure ACR is used as Container Registry. The build will push the built docker image to the Registry and then Azure App Service Deployment Center of a particular service will be configured as Continous Deployment to create/update the App Service upon image push (sandbox-ci.yml)
+
+
+

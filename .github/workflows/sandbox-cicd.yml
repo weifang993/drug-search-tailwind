@@ -1,0 +1,33 @@
+name: sandbox-cicd
+on:
+  workflow_dispatch:
+    branches:
+      - 'master'
+jobs:
+  build:
+    name: Build and Push Docker image to Azure Registry 
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.SANDBOX_CREDENTIALS }}
+    - uses: azure/docker-login@v1
+      with:
+        login-server: flasitcr.azurecr.io
+        username: ${{ secrets.SANDBOX_REGISTRY_USERNAME }}
+        password: ${{ secrets.SANDBOX_REGISTRY_PASSWORD }}
+    - run: |
+        docker build -t flasitcr.azurecr.io/action-drug-search-tailwind:latest . 
+        docker push flasitcr.azurecr.io/action-drug-search-tailwind:latest
+    
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'github-action-cicd01'
+        images: 'flasitcr.azurecr.io/action-drug-search-tailwind:latest'
+    
+    - name: Azure logout
+      run: |
+        az logout
+  
