@@ -18,6 +18,11 @@ jobs:
         login-server: flasitcr.azurecr.io
         username: ${{ secrets.SANDBOX_REGISTRY_USERNAME }}
         password: ${{ secrets.SANDBOX_REGISTRY_PASSWORD }}
+    # - uses: azure/docker-login@v1
+    #   with:
+    #     login-server: index.docker.io
+    #     username: ${{ secrets.DOCKER_NAME }}
+    #     password: ${{ secrets.DOCKER_SECRET }}
     - run: |
         docker build -t flasitcr.azurecr.io/action-drug-search-tailwind:latest . 
         docker push flasitcr.azurecr.io/action-drug-search-tailwind:latest
